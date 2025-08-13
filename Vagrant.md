@@ -17,6 +17,7 @@
 ## Жизненный цикл ВМ
 - `vagrant init <box>` — сгенерировать Vagrantfile.
 - `vagrant up [--provider <prov>] [--provision]` — создать и запустить ВМ.
+  - `vagrant up --provider=hyperv`.
 - `vagrant halt [-f]` — корректно выключить.
 - `vagrant suspend` / `vagrant resume` — спячка и возврат.
 - `vagrant reload [--provision]` — перезапуск с пересборкой сетей.
@@ -25,6 +26,8 @@
 - `vagrant status` — статус текущего окружения.
 - `vagrant global-status [--prune]` — все окружения.
 - `vagrant validate` — проверка Vagrantfile.
+- `vagrant version` — проверка версию Vagrant.
+- `vagrant package --base name-vm-virtualbox` - создать box.
 
 ## SSH, снимки, плагины
 - `vagrant ssh` — вход по SSH.
@@ -34,6 +37,7 @@
 
 ## Управление box’ами
 - `vagrant box add --name <user/box> <path|url> [--provider <prov>]` — добавить box.
+  - `vagrant box add hashicorp/bionic64 --provider hyperv`.
 - `vagrant box list` — список box’ов.
 - `vagrant box remove <name> [--provider <prov>] [--box-version <ver>]` — удалить.
 - `vagrant box outdated` — проверить обновления.
