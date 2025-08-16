@@ -2,13 +2,13 @@
 # vi: set ft=ruby :
 
 # ======== Параметры конфигурации =========
-BOX_NAME      = "almalinux-9.3"   # Имя используемого Vagrant box (в данном случае, box локальный)
+BOX_NAME      = "my/almalinux9.6" # Имя используемого Vagrant box (в данном случае, box локальный)
 HOST_SHOW_GUI = false             # false = запуск без GUI VirtualBox
 HOST_CPUS     = 2                 # количество выделенных CPU
 HOST_MEMORY   = 2048              # размер RAM в МБ
 HOST_BRIDGE   = "Hyper-V Virtual Ethernet Adapter #2" # Сетевой bridge-интерфейс хоста
-HOST_USER      = "root"           # имя пользователя (УЗ локального Vagrant box)
-HOST_USER_PASS = "Qq12345"        # пароль 
+HOST_USER      = "vagrant"        # имя пользователя (УЗ локального Vagrant box)
+# HOST_USER_PASS = "vagrant"      # пароль 
 
 # ======== Список ВМ =========
 # Задаём имена хостов, статические IP и vagrant box.
@@ -33,8 +33,8 @@ Vagrant.configure("2") do |config|
 
       # Параметры SSH
       node.ssh.username   = HOST_USER
-      node.ssh.password   = HOST_USER_PASS
-      node.ssh.insert_key = false
+      # node.ssh.password   = HOST_USER_PASS
+      node.ssh.insert_key = true
 
       # Настройки VirtualBox-провайдера
       node.vm.provider "virtualbox" do |vm|
